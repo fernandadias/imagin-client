@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+
+/*
+ * global variables
+ *
+ */
+:root {
+
+    // elements
+    --gap: 1.5rem;
+
+    // form
+    --form-field-height: 40px;
+    --form-background: #ddd;
+    --form-background-disabled: #ddd;
+    --form-border: none;
+
+    // containers
+    --row: 1320px;
+    --row-xl: 1500px;
+}

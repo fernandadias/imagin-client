@@ -1,0 +1,27 @@
+@charset 'UTF-8';
+
+/* configuration */
+@import
+    'utils/vars',
+    './node_modules/utillz-sass/src/mixins';
+
+/* base stuff and helpers */
+@import
+    'base/wp.scss',
+    'base/typography.scss',
+    'base/woocommerce.scss';
+
+/* partials */
+@import
+    'partials/header.scss',
+    'partials/footer.scss';
+
+/* components */
+@import
+    'components/button.scss',
+    'components/preloader.scss';
+
+/* ... */
+@import
+    'base/main.scss',
+    'base/mobile.scss';

@@ -1,0 +1,206 @@
+@charset 'UTF-8';
+
+.ulz-footer {
+    @include relative;
+    padding-top: var( --gap );
+    color: #111;
+    overflow: hidden;
+
+    @include media( lg ) {
+        padding-bottom: 64px;
+    }
+
+    .ulz-footer-title {
+        font-size: 33px;
+        font-family: var( --font-heading );
+        font-weight: 800;
+    }
+
+    .ulz-site-nav {
+        min-height: 0;
+    }
+
+    .ulz--content {
+        padding: 3.5rem 0;
+
+        @include media( md ) {
+            padding: 0;
+        }
+    }
+
+    .ulz--columns {
+        display: flex;
+        margin-left: calc( -1 * var( --gap ) );
+        margin-right: calc( -1 * var( --gap ) );
+
+        .ulz--cell {
+            flex: 1;
+        }
+
+        @include media( md ) {
+            flex-wrap: wrap;
+
+            .ulz--cell {
+                flex: 0 1 50%!important;
+                max-width: 50%!important;
+            }
+        }
+
+        @include media( xs ) {
+            .ulz--cell {
+                flex: 0 1 100%!important;
+                max-width: 100%!important;
+            }
+        }
+    }
+
+    .ulz--name {
+        display: block;
+        margin: 0;
+        font-size: 33px;
+        line-height: 100%;
+        font-weight: 800;
+
+        @include media( md ) {
+            font-size: 30px;
+        }
+    }
+
+    .ulz--summary {
+        margin-top: 2rem;
+
+        @include media( md ) {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        @include media( sm ) {
+            margin-bottom: var( --gap );
+        }
+    }
+
+    .ulz-widget {
+        padding: 0 var( --gap );
+
+        @include media( sm ) {
+            flex: 0 1 100%;
+            border-bottom: 1px solid var( --border );
+            padding-bottom: var( --gap );
+
+            &:last-child {
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    .ulz--bottom {
+        padding: 1.25rem 0;
+
+        @include media( md ) {
+            padding: var( --gap ) 0;
+        }
+    }
+
+    .ulz--bottom-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0 calc( -.5 * var( --gap ) );
+
+        > * {
+            padding-left: calc( .5 * var( --gap ) );
+            padding-right: calc( .5 * var( --gap ) );
+        }
+
+        @include media( md ) {
+            justify-content: center;
+            text-align: center;
+
+            .ulz--cell-copy,
+            .ulz--cell-icons {
+                flex: 0 1 100%;
+            }
+        }
+
+        a {
+            &:hover {
+                color: var( --primary );
+            }
+        }
+    }
+
+    .ulz--cell-copy {
+        p {
+            margin: 0;
+
+            @include media( md ) {
+                margin-bottom: .5rem;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .widget-title {
+        margin-bottom: 1rem;
+        font-size: 15px;
+        line-height: 100%;
+        font-weight: 600;
+    }
+
+    .ulz-nav-bottom {
+        overflow: hidden;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 -5px;
+
+            li {
+                display: flex;
+                align-items: center;
+                margin: 0 5px;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+                    padding: 0;
+                    color: inherit;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+/*
+ * invert
+ *
+ */
+.ulz-invert-footer {
+    .ulz-footer {
+        --border: #333;
+
+        background-color: #000;
+        color: #fff;
+
+        a {
+            color: #fff;
+        }
+
+        .ulz--top {
+            background-color: #000;
+        }
+
+        .ulz--bottom {
+            background-color: #000;
+        }
+    }
+}

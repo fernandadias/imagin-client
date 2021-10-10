@@ -1,0 +1,63 @@
+@charset 'UTF-8';
+
+/*
+ * typography
+ *
+ */
+body {
+    font-family: var( --font-body );
+    font-size: 17px;
+    line-height: 1.5;
+    color: #111;
+
+    @include media( sm ) {
+        font-size: 15px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var( --font-heading );
+    line-height: 1.3;
+    margin: 0 0 0.7rem 0;
+    font-weight: 700;
+}
+
+h1 { font-size: 2.66rem; }
+h2 { font-size: 2.33rem; }
+h3 { font-size: 1.99rem; }
+h4 { font-size: 1.66rem; }
+h5 { font-size: 1.33rem; }
+h6 { font-size: 1rem; }
+
+@include media( md ) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    h5 { font-size: 1rem; }
+    h6 { font-size: 0.75rem; }
+}
+
+p {
+    margin: 0 0 var( --gap ) 0;
+}
+
+a {
+    color: var( --primary );
+}
+
+.ulz-font-heading {
+    font-family: var( --font-heading );
+}
+
+// fix material icons first time loading
+.ulz--loading-icons {
+    .material-icons {
+        text-indent: -99999px;
+    }
+}

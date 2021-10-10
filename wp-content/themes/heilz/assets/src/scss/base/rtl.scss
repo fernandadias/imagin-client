@@ -1,0 +1,15 @@
+@charset 'UTF-8';
+
+/* configuration */
+@import
+    './node_modules/utillz-sass/src/mixins';
+
+/*
+ * rtl styles
+ *
+ */
+
+body {
+    direction: rtl;
+    unicode-bidi: embed;
+}

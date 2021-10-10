@@ -1,0 +1,132 @@
+@charset 'UTF-8';
+
+/*
+ * apply styles for admin area
+ *
+ */
+
+// tgm
+.ulz-db-notice {
+    border-left-width: 6px;
+    border-top: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border-right: 0;
+    border-bottom: 0;
+    margin: 20px 20px 15px 0;
+    box-shadow: none;
+
+    .ulz-outer {
+        padding: 15px 7px 19px;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .ulz-db-settings-error-heading {
+        display: block;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #dc3232;
+        font-weight: 700;
+        font-size: 22px;
+    }
+
+    .ulz-button {
+        margin-top: 1rem;
+    }
+
+    .notice-dismiss {
+        display: none;
+    }
+
+    .ulz-dismiss {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        border: none;
+        margin: 0;
+        padding: 9px;
+        background: 0 0;
+        color: #787c82;
+        line-height: 1;
+        text-decoration: none;
+
+        &:before {
+            content: '\f057';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 700;
+            font-size: 20px;
+            color: #dc3232;
+        }
+    }
+
+    .ulz--button {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 1rem 0 0 0;
+        font-size: 15px;
+        line-height: 21px;
+        text-align: center;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: transparent;
+        background-color: #000;
+        color: #fff;
+        border: 0;
+        font-weight: 700;
+        border-radius: 7px;
+        text-decoration: none !important;
+        vertical-align: middle;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+}
+
+/*
+ * modals
+ *
+ */
+.ulz-close {
+    text-decoration: none;
+
+    span {
+        display: block;
+        padding: 0 12px;
+        background-color: #f1f1f1;
+        color: #000;
+        font-size: 16px;
+        line-height: 39px;
+        font-weight: 700;
+        border-radius: 8px;
+    }
+
+    @include media( hover ) {
+        &:hover {
+            span {
+                background-color: #ddd;
+            }
+        }
+    }
+}
+
+// modal signin
+.ulz-modal-signin {
+    .ulz-close {
+        span {
+            background-color: #222;
+            color: #fff;
+        }
+
+        @include media( hover ) {
+            &:hover {
+                span {
+                    background-color: #333;
+                }
+            }
+        }
+    }
+}

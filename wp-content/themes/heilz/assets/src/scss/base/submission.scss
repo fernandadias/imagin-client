@@ -1,0 +1,358 @@
+@charset 'UTF-8';
+
+/* configuration */
+@import
+    './node_modules/utillz-sass/src/mixins';
+
+.ulz-submission-step {
+
+}
+
+/*
+ * submission
+ *
+ */
+.ulz-submission {
+    @include absolute( top 0 right 0 bottom 0 left 0 );
+    display: flex;
+    flex-direction: column;
+
+    &.ulz--is-sidebar {
+        > .ulz--content {
+            padding-left: 375px;
+
+            @include media( md ) {
+                padding-left: 0;
+            }
+
+            > .ulz--top,
+            > .ulz--bottom, {
+                left: 375px;
+
+                @include media( md ) {
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    > .ulz--sidebar {
+        @include fixed( top 0 left 0 bottom 0 );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 375px;
+        padding: var( --gap );
+        border-right: 1px solid #ddd;
+
+        @include media( md ) {
+            display: none;
+        }
+    }
+
+    > .ulz--content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+
+        > .ulz--top {
+            display: flex;
+            align-items: center;
+            padding: .5rem 1.25rem;
+            background-color: #fff;
+            border-bottom: 1px solid var( --border );
+            height: 70px;
+            z-index: 9;
+
+            @include media( sm ) {
+                padding: .5rem 1rem;
+                height: 62px;
+            }
+
+            .ulz--image {
+                flex: 0 40px;
+                min-width: 40px;
+                margin-right: 1rem;
+
+                .ulz--img {
+                    display: block;
+                    padding-top: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 50%;
+                }
+
+                .ulz-dummy-image {
+                    border-radius: 50%;
+
+                    i {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .ulz--name {
+                font-size: 20px;
+                margin: 0;
+                margin-right: 1rem;
+
+                @include media( sm ) {
+                    font-size: 16px;
+                }
+            }
+
+            .ulz--exit {
+                margin-left: auto;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        }
+
+        > .ulz--middle {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: var( --gap );
+            overflow-y: scroll;
+
+            @include media( md ) {
+                padding: 1rem;
+            }
+        }
+
+        > .ulz--bottom {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: .75rem 1.25rem;
+            background-color: #fff;
+            border-top: 1px solid var( --border );
+            height: 70px;
+            z-index: 9;
+
+            @include media( sm ) {
+                grid-template-columns: 1fr 1fr;
+                padding: .75rem 1rem;
+                height: 62px;
+            }
+
+            .ulz--steps {
+                font-weight: 600;
+            }
+
+            .ulz--cell-next {
+                text-align: right;
+            }
+
+            .ulz--cell {
+                &.ulz--cell-steps {
+                    @include media( sm ) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .ulz-site-logo {
+        width: 100%;
+        margin: 0;
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 800;
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 50px;
+            vertical-align: top;
+        }
+    }
+
+    .ulz--row {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+
+        @include media( sm ) {
+            justify-content: initial;
+        }
+
+        > * {
+            width: 100%;
+        }
+    }
+
+    .ulz--progress {
+        @include absolute( top 0 left 0 );
+        @include transformY( -100% );
+        @include transition( all .2s );
+        height: 2px;
+        background-color: var( --system );
+        z-index: 2;
+    }
+
+    &.ulz--success {
+        .ulz--progress {
+            opacity: 0;
+        }
+    }
+
+    .ulz-plans {
+        .ulz-plan {
+            background-color: #fff;
+            color: #000;
+
+            .ulz--badge {
+                background-color: var( --primary );
+            }
+
+            .ulz-content {
+                ul {
+                    li {
+                        &:before {
+                            color: var( --primary );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ulz-wizard {
+    ul {
+        list-style: none;
+        margin: 0;
+    }
+
+    li {
+        @include relative;
+        display: flex;
+        align-items: center;
+        padding: 5px 12px;
+        margin: 6px 0;
+        color: #555;
+        font-size: 15px;
+        font-weight: 600;
+
+        &:before {
+            @include absolute( top 0 right 0 bottom 0 left 0 );
+            content: '';
+            background-color: transparent;
+            border-radius: 6px;
+        }
+
+        &:after {
+            @include relative;
+            content: '\f058';
+            visibility: hidden;
+            width: 20px;
+            height: 20px;
+            margin-left: auto;
+            font-family: 'Font Awesome 5 Free';
+            font-size: 19px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        &.ulz-active {
+            color: #999;
+
+            &:before {
+                background-color: #111;
+                opacity: .05;
+            }
+
+            &:after {
+                visibility: visible;
+            }
+        }
+
+        &.ulz-current {
+            color: var( --system );
+
+            &:before {
+                background-color: var( --system-background );
+                opacity: 1;
+            }
+
+
+        }
+    }
+
+    span {
+        @include relative;
+        margin-right: .5rem;
+    }
+
+    i {
+        @include relative;
+        margin-right: .5rem;
+        font-size: 20px;
+    }
+}
+
+.ulz-submission-types {
+    .ulz--type {
+        &.ulz-active {
+            background-color: var( --primary );
+            color: #fff;
+
+            .ulz-button {
+                background-color: #fff;
+                color: var( --primary );
+            }
+
+            .ulz-preloader {
+                color: var( --primary );
+            }
+        }
+    }
+}
+
+/*
+ * error
+ *
+ */
+.utillz {
+    .ulz-select-plan-error {
+        .ulz-error {
+            padding: 10px;
+            margin-top: var( --gap );
+            background-color: var( --error-background );
+            color: var( --error );
+            font-size: 15px;
+            line-height: 23px;
+            font-weight: 700;
+            border-radius: 10px;
+
+            @include media( sm ) {
+                padding: 5px 10px;
+                line-height: 21px;
+            }
+
+            &:after {
+                border-bottom-color: var( --error-background );
+                border-width: 7px;
+                margin-left: -7px;
+            }
+        }
+    }
+
+    .ulz-error-holder {
+        @extend .ulz-select-plan-error;
+    }
+}
